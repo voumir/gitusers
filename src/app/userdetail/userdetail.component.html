@@ -1,0 +1,32 @@
+<div style="margin-top: 5%;">
+
+    <mat-card class="basic-card">
+  
+      <mat-card-title-group>
+        <mat-card-subtitle>Login/Usuário</mat-card-subtitle>
+        <mat-card-title>{{ userDetail$.login }}</mat-card-title>
+        <img mat-card-xl-image src="{{ userDetail$.avatar_url }}">
+      </mat-card-title-group>
+      <mat-card-title-group>
+        <mat-card-subtitle>Nome Completo</mat-card-subtitle>
+        <mat-card-title>{{ userDetail$.name }}</mat-card-title>
+  
+      </mat-card-title-group>
+  
+      <mat-card-content>
+        {{longText}}
+      </mat-card-content>
+  
+      <mat-card-title-group>
+        <mat-card-subtitle>Empresa</mat-card-subtitle>
+        <mat-card-title>{{ userDetail$.company }}</mat-card-title>
+      </mat-card-title-group>
+  
+      <div style="margin-top: 5%;"></div>
+      <button mat-raised-button color="primary" (click)="goBack()">Volta</button>
+  
+    </mat-card>
+  
+  
+  </div>
+  

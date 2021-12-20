@@ -1,0 +1,61 @@
+
+
+<!-- content -->
+<div class="content" role="main">
+
+    <h2>Lista de Usuários do Git</h2>
+  
+    <!-- <button mat-raised-button color="primary" (click)="getGitUsers()">Obter Git Users</button> -->
+  
+    <table mat-table class="mat-elevation-z8" [dataSource]="usersList$">
+  
+  
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{ user.id }} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="login">
+        <mat-header-cell *matHeaderCellDef> Login </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{ user.login | uppercase}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="avatar_url">
+        <mat-header-cell *matHeaderCellDef> Avatar </mat-header-cell>
+        <mat-cell *matCellDef="let user"> <img src="{{ user.avatar_url }}" height="40" width="40"> </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="url">
+        <mat-header-cell *matHeaderCellDef> Detalhe </mat-header-cell>
+        <mat-cell *matCellDef="let user"><a   routerLink="/userdetail/{{user.login}}">
+  
+            <mat-icon aria-hidden="false" aria-label="Detalhes" title="Detalhes de {{user.login}}">search</mat-icon>
+          </a> </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="html_url">
+        <mat-header-cell *matHeaderCellDef> Git </mat-header-cell>
+        <mat-cell *matCellDef="let user"><a href="{{ user.html_url }}">
+            <mat-icon aria-hidden="false" aria-label="Detalhes" title="Git de {{user.login}}">hub</mat-icon>
+          </a> </mat-cell>
+      </ng-container>
+  
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+    </table>
+  
+    <mat-spinner value="100" mode="indeterminate" *ngIf="isWait"></mat-spinner>
+  
+  
+    <!-- Footer -->
+    <footer>
+      <a class="vls-link" title="Meu site" href="http://www.volmir.com.br/?o=procer"
+        target="_blank">volmir.com.br</a>
+    </footer>
+    <!-- /Footer -->
+  
+  </div>
+  <!-- /content -->
+
